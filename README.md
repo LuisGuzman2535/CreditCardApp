@@ -75,14 +75,13 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
    Descripción: Agrega una transacción ya se de Compra o Pago.
   Body:
   ```json
-
-{
-  "nombre": "Luis Guzman",
-  "correo": "guzmanluis@gmail.com",
-  "numeroTarjeta": "4111111111111111",
-  "limiteCredito": 2000,
-  "saldoActual": 0
-}
+   {
+     "nombre": "Luis Guzman",
+     "correo": "guzmanluis@gmail.com",
+     "numeroTarjeta": "4111111111111111",
+     "limiteCredito": 2000,
+     "saldoActual": 0
+   }
 ```
 ## 5. Cómo Probar la Aplicación
 - Ejecutar el proyecto CreditCardAPI en Visual Studio.
