@@ -55,5 +55,52 @@ namespace CreditCardAPI.Controllers
 
             return Ok(listadoTarjetas);
         }
+
+        [HttpPost]
+        [Route("AgregarTarjetaCredito")]
+        [SwaggerOperation(Summary = "Guarda una tarjetas de crédito con su usuario.")]
+        [SwaggerResponse(200, "Tarjetas de crédito guardada correctamente", typeof(UsuarioTarjetaDTO))]
+        public async Task<IActionResult> PostUsuarioTarjeta([FromBody] UsuarioTarjetaDTO dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            using (var transaction = await _context.Database.BeginTransactionAsync())
+            {
+                try
+                {
+                    var usuario = new Usuario
+                    {
+                        Nombre = dto.Nombre,
+                        Correo = dto.Correo
+                    };
+
+                    _context.Usuarios.Add(usuario);
+                    await _context.SaveChangesAsync();
+
+                    var tarjeta = new TarjetasDeCredito
+                    {
+                        UsuarioId = usuario.UsuarioId,
+                        NumeroTarjeta = dto.NumeroTarjeta,
+                        LimiteCredito = dto.LimiteCredito,
+                        SaldoActual = dto.SaldoActual
+                    };
+
+                    _context.TarjetasDeCreditos.Add(tarjeta);
+                    await _context.SaveChangesAsync();
+
+                    await transaction.CommitAsync();
+
+                    return Ok(usuario);
+                }
+                catch (Exception ex)
+                {
+                    await transaction.RollbackAsync();
+                    return StatusCode(500, $"Internal server error: {ex.Message}");
+                }
+            }
+        }
     }
 }

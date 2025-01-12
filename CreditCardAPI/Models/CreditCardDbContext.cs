@@ -74,9 +74,6 @@ public partial class CreditCardDbContext : DbContext
         modelBuilder.Entity<Usuario>(entity =>
         {
             entity.HasKey(e => e.UsuarioId).HasName("PK__Usuarios__2B3DE798359E44CA");
-
-            entity.HasIndex(e => e.Correo, "UQ__Usuarios__60695A19AAE06393").IsUnique();
-
             entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
             entity.Property(e => e.Correo).HasMaxLength(100);
             entity.Property(e => e.Nombre).HasMaxLength(100);
