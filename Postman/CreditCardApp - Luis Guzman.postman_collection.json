@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "13d97f7e-9d0f-42a5-bd0e-7df3dae9e436",
+		"_postman_id": "e13330d3-ee07-4516-9787-880e29e10b4b",
 		"name": "CreditCardApp - Luis Guzman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27497909"
@@ -98,6 +98,32 @@
 					],
 					"path": [
 						"AddTransaccion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AgregarTarjetaCredito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"WLuis Diaz\",\r\n  \"correo\": \"diazluis@gmail.com\",\r\n  \"numeroTarjeta\": \"4111111111111111\",\r\n  \"limiteCredito\": 2000,\r\n  \"saldoActual\": 0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}TarjetasDeCredito/AgregarTarjetaCredito",
+					"host": [
+						"{{base_url}}TarjetasDeCredito"
+					],
+					"path": [
+						"AgregarTarjetaCredito"
 					]
 				}
 			},
