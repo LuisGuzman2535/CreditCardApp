@@ -26,6 +26,17 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
 - SQL Server
 
 ## Configuración del Proyecto
-1. Clonar el repositorio:
+1. Clonar el repositorio o descargar zip:
    ```bash
    git clone https://github.com/LuisGuzman2535/CreditCardApp.git
+
+#Configuraciónes generales de la solución
+## 1. Configurar la cadena de conexión a la base de datos en appsettings.json ubicado en el proyecto CreditCardAPI.
+- En el Server colocar tu servidor de sql server.
+- 
+## 2. Configurar dirección base para el cliente HTTP.
+- En el archivo promgram.cs, en builder.Services.AddHttpClient colocar la uri, actualmente es https://localhost:7067/, en caso de error probar con http://localhost:5008/
+
+## 3. Ejecutar los scripts de la base de datos ubicados en la carpeta DatabaseScripts.
+
+
