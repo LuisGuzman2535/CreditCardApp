@@ -22,10 +22,10 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
 - Historial de transacciones del mes.
 
 ## Requisitos
-- .NET 6.0
+- .NET 8.0
 - SQL Server
 
 ## Configuración del Proyecto
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/LuisGuzman2535/CreditCardApp.git
