@@ -69,14 +69,28 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
     "TipoTransaccion": "Compra" //"Compra" o tambien puede ser "Pago"
 }
 ```
-  
+- Obtener Agregar Transaccion
+   URL: /api/TarjetasDeCredito/AgregarTarjetaCredito
+   Método: POST
+   Descripción: Agrega una transacción ya se de Compra o Pago.
+  Body:
+  ```json
+   {
+     "nombre": "Luis Guzman",
+     "correo": "guzmanluis@gmail.com",
+     "numeroTarjeta": "4111111111111111",
+     "limiteCredito": 2000,
+     "saldoActual": 0
+   }
+```
 ## 5. Cómo Probar la Aplicación
 - Ejecutar el proyecto CreditCardAPI en Visual Studio.
 - Utilizar la colección de Postman incluida en el repositorio para probar los endpoints de la API.
-- Ejecutar el proyecto abriendo nuevamente Visual Studio pero ahora ejecutando CreditCardMVC. En caso que al ejecutar CreditCardMVC aparece un error relacionado con CreditCardAPI darle que si ejecutar de todos modos.
+- Ejecutar el proyecto abriendo nuevamente Visual Studio pero ahora ejecutando CreditCardMVC. En caso que al ejecutar CreditCardMVC aparece un error relacionado con CreditCardAPI darle que si ejecutar de todos modos, tambien validar que se encuentre seleccionado para compilar el proyecto CreditCardMVC. 
   
 ## Vistas de la aplicación 
 - Pantalla de Listado de Tarjetas de Crédito muestra una tabla con todas las tarjetas de crédito asociadas al usuario.
+- Pantalla de Guardar Tarjetas de Crédito, guarda una tarjeta de credito con usuario y correo.
 - Pantalla de Estado de Cuenta permite al usuario visualizar el estado de cuenta detallado de una tarjeta de crédito específica. Tambien tiene un botón de Exportar a Excel: Permite al usuario exportar el historial de compras a un archivo Excel para un análisis más detallado o para mantener un registro.
 - Pantalla de Registrar Compra permite al usuario agregar nuevas compras realizadas con la tarjeta de crédito.
 - Pantalla de Registrar Pago permite al usuario ingresar pagos realizados hacia la tarjeta de crédito.
