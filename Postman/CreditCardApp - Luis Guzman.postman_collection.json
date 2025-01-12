@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "13d97f7e-9d0f-42a5-bd0e-7df3dae9e436",
+		"name": "CreditCardApp - Luis Guzman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27497909"
+	},
+	"item": [
+		{
+			"name": "EstadoDeCuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}EstadoDeCuenta/GetEstadoCuenta/1",
+					"host": [
+						"{{base_url}}EstadoDeCuenta"
+					],
+					"path": [
+						"GetEstadoCuenta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HistorialTransacciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}EstadoDeCuenta/GetHistorialTransacciones/1",
+					"host": [
+						"{{base_url}}EstadoDeCuenta"
+					],
+					"path": [
+						"GetHistorialTransacciones",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TarjetaDeCredito",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}TarjetasDeCredito/TarjetaDeCredito/1",
+					"host": [
+						"{{base_url}}TarjetasDeCredito"
+					],
+					"path": [
+						"TarjetaDeCredito",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListadoDeTarjetas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}TarjetasDeCredito/ListadoDeTarjetas",
+					"host": [
+						"{{base_url}}TarjetasDeCredito"
+					],
+					"path": [
+						"ListadoDeTarjetas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddTransaccion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"TarjetaId\": 1,\r\n    \"Fecha\": \"2025-01-07\",\r\n    \"Descripcion\": \"Compra en tienda\",\r\n    \"Monto\": 1.00,\r\n    \"TipoTransaccion\": \"Compra\" //\"Compra\" o tambien puede ser \"Pago\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}Transaccion/AddTransaccion",
+					"host": [
+						"{{base_url}}Transaccion"
+					],
+					"path": [
+						"AddTransaccion"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://localhost:7067/api/",
+			"type": "string"
+		}
+	]
+}
