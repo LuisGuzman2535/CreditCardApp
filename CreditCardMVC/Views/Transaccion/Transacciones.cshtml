@@ -1,0 +1,66 @@
+﻿@model CreditCardAPI.Models.TarjetasDeCredito
+@using CreditCardMVC.Utils
+
+<div class="container mt-5">
+    <h2 class="mb-4">Estado de Cuenta</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <p><strong>Nombre del Cliente:</strong> @Model.Usuario.Nombre</p>
+            <p><strong>Número de Tarjeta:</strong> @Utilidades.OcultarNumeroTarjeta(Model.NumeroTarjeta)</p>
+        </div>
+    </div>
+    <h3>Historial de Transacciones</h3>
+    <div class="card">
+        <div class="card-body">
+            <input class="form-control mb-3" id="searchInput" type="text" placeholder="Buscar">
+            <div style="overflow-x:auto;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-info">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Monto</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaccionesTable">
+                            @foreach (var transaccion in Model.Transacciones)
+                            {
+                                <tr>
+                                    <td>@transaccion.Fecha.ToString("dd/MM/yyyy")</td>
+                                    <td>@transaccion.Monto.ToString("C")</td>
+                                    <td>@transaccion.Descripcion</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('transaccionesTable');
+        tr = table.getElementsByTagName('tr');
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td');
+            if (td.length > 0) {
+                txtValue = "";
+                for (var j = 0; j < td.length; j++) {
+                    txtValue += td[j].textContent || td[j].innerText;
+                }
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
+</script>

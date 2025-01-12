@@ -1,0 +1,26 @@
+﻿@model CreditCardAPI.Models.Transacciones
+@using CreditCardMVC.Utils
+
+<div class="container mt-5">
+    <h2 class="mb-4">Registrar Compra</h2>
+    <form asp-action="RegistrarCompra" method="post">
+        <input type="hidden" asp-for="TarjetaId" />
+        <div class="card-body">
+            <p><strong>Nombre: </strong>@Model.Tarjeta.Usuario.Nombre</p>
+            <p><strong>Número de Tarjeta:</strong> @Utilidades.OcultarNumeroTarjeta(Model.Tarjeta.NumeroTarjeta)</p>
+        </div>
+        <div class="form-group">
+            <label for="Fecha">Fecha</label>
+            <input type="date" class="form-control" id="Fecha" name="Fecha" required>
+        </div>
+        <div class="form-group">
+            <label for="Monto">Monto</label>
+            <input type="number" class="form-control" id="Monto" name="Monto" required>
+        </div>
+        <div class="form-group">
+            <label for="Descripcion">Descripción</label>
+            <input type="text" class="form-control" id="Descripcion" name="Descripcion" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>

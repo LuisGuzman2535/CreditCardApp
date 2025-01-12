@@ -1,0 +1,93 @@
+﻿
+@model CreditCardMVC.Models.EstadoDeCuentaViewModel
+@using CreditCardMVC.Utils
+
+<div class="container mt-5">
+    <h2 class="mb-4">Estado de Cuenta</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <p><strong>Nombre del Titular:</strong> @Model.EstadoCuenta.Nombre</p>
+                    <p><strong>Número de Tarjeta:</strong> @Utilidades.OcultarNumeroTarjeta(Model.EstadoCuenta.NumeroTarjeta)</p>
+                </div>
+                <div class="col">
+                    <p><strong>Saldo Actual: $</strong>@Model.EstadoCuenta.SaldoActual</p>
+                    <p><strong>Límite: $</strong> @Model.EstadoCuenta.LimiteCredito</p>
+                    <p><strong>Interés Bonificable: $</strong> @Model.EstadoCuenta.InteresBonificable</p>
+                    <p><strong>Cuota Mínima a Pagar: $</strong> @Model.EstadoCuenta.CuotaMinima</p>
+                    <p><strong>Monto Total a Pagar: $</strong> @Model.EstadoCuenta.MontoTotal</p>
+                    <p><strong>Pago de Contado con Intereses: $</strong> @Model.EstadoCuenta.PagoContadoConIntereses</p>
+                    <p><strong>Saldo Disponible: $</strong> @Model.EstadoCuenta.SaldoDisponible</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Historial de Transacciones</h3>
+    <div class="card">
+        <div class="card-body">
+            <input class="form-control mb-3" id="searchInput" type="text" placeholder="Buscar">
+            <div style="overflow-x:auto;">
+                <div class="table-responsive">
+                    <table class="table table-striped table-info">
+                        <thead>
+                            <tr>
+                                <th>Numero de Autorización</th>
+                                <th>Fecha</th>
+                                <th>Monto</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaccionesTable">
+                            @foreach (var transaccion in Model.HistorialTransacciones)
+                            {
+                                <tr>
+                                    <td>@transaccion.TransaccionId</td>
+                                    <td>@transaccion.Fecha.ToString("dd/MM/yyyy")</td>
+                                    <td>@transaccion.Monto.ToString("C")</td>
+                                    <td>@transaccion.Descripcion</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><strong>Total Compras Mes Actual:</strong> @Model.EstadoCuenta.TotalComprasMesActual</p>
+                </div>
+                <div class="col">
+                    <p><strong>Total Compras Mes Anterior:</strong> @Model.EstadoCuenta.TotalComprasMesAnterior</p>
+                </div>
+                <div class="col">
+                    <a class="btn btn-primary btn-sm" asp-controller="EstadoDeCuenta" asp-action="ExportToExcel" asp-route-id="@Model.EstadoCuenta.TarjetaId">Exportar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('transaccionesTable');
+        tr = table.getElementsByTagName('tr');
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td');
+            if (td.length > 0) {
+                txtValue = "";
+                for (var j = 0; j < td.length; j++) {
+                    txtValue += td[j].textContent || td[j].innerText;
+                }
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    });
+</script>
