@@ -59,6 +59,16 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
    URL: /api/Transaccion/AddTransaccion
    Método: POST
    Descripción: Agrega una transacción ya se de Compra o Pago.
+  Body:
+```json
+{
+    "TarjetaId": 1,
+    "Fecha": "2025-01-07",
+    "Descripcion": "Compra en tienda",
+    "Monto": 1.00,
+    "TipoTransaccion": "Compra" //"Compra" o tambien puede ser "Pago"
+}
+```
   
 ## 5. Cómo Probar la Aplicación
 - Ejecutar el proyecto CreditCardAPI en Visual Studio.
