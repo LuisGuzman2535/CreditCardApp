@@ -38,5 +38,37 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
 - En el archivo promgram.cs, en builder.Services.AddHttpClient colocar la uri, actualmente es https://localhost:7067/, en caso de error probar con http://localhost:5008/
 
 ## 3. Ejecutar los scripts de la base de datos ubicados en la carpeta DatabaseScripts.
-
-
+## 4. Prueba de Endpoints de la API (CreditCardAPI). La colección de Postman que permite probar  la API se encuentra en la carpeta Postman.
+- Obtener Estado de Cuenta
+   URL: /api/EstadoDeCuenta/GetEstadoCuenta/{id}
+   Método: GET
+   Descripción: Obtiene el estado de cuenta de una tarjeta de crédito por ID de tarjeta de credito.
+- Obtener Historial de Transacciones
+   URL: /api/EstadoDeCuenta/GetHistorialTransacciones/{id}
+   Método: GET
+   Descripción: Obtiene el historial de transacciones de una tarjeta de crédito por ID de tarjeta de credito.
+- Obtener Tarjetas de Credito
+   URL: /api/TarjetasDeCredito/TarjetaDeCredito/{id}
+   Método: GET
+   Descripción: Obtiene las tarjetas de credito por por ID de tarjeta de credito.
+- Obtener Listado de Tarjetas de Credito
+   URL: /api/TarjetasDeCredito/ListadoDeTarjetas/{id}
+   Método: GET
+   Descripción: Obtiene todas las tarjetas de credito.
+- Obtener Agregar Transaccion
+   URL: /api/Transaccion/AddTransaccion
+   Método: POST
+   Descripción: Agrega una transacción ya se de Compra o Pago.
+  
+## 5. Cómo Probar la Aplicación
+- Ejecutar el proyecto CreditCardAPI en Visual Studio.
+- Utilizar la colección de Postman incluida en el repositorio para probar los endpoints de la API.
+- Ejecutar el proyecto abriendo nuevamente Visual Studio pero ahora ejecutando CreditCardMVC.
+  
+## Vistas de la aplicación 
+- Pantalla de Listado de Tarjetas de Crédito muestra una tabla con todas las tarjetas de crédito asociadas al usuario.
+- Pantalla de Estado de Cuenta permite al usuario visualizar el estado de cuenta detallado de una tarjeta de crédito específica. Tambien tiene un botón de Exportar a Excel: Permite al usuario exportar el historial de compras a un archivo Excel para un análisis más detallado o para mantener un registro.
+- Pantalla de Registrar Compra permite al usuario agregar nuevas compras realizadas con la tarjeta de crédito.
+- Pantalla de Registrar Pago permite al usuario ingresar pagos realizados hacia la tarjeta de crédito.
+- Pantalla de Transacciones muestra una lista completa de todas las transacciones realizadas con la tarjeta de crédito, incluyendo tanto compras como pagos.
+  
