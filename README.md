@@ -95,4 +95,34 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
 - Pantalla de Registrar Compra permite al usuario agregar nuevas compras realizadas con la tarjeta de crédito.
 - Pantalla de Registrar Pago permite al usuario ingresar pagos realizados hacia la tarjeta de crédito.
 - Pantalla de Transacciones muestra una lista completa de todas las transacciones realizadas con la tarjeta de crédito, incluyendo tanto compras como pagos.
-  
+
+##Paquetes NuGet utilizados en cada proyecto
+```
+      El proyecto "CreditCardAPI" tiene las referencias de paquete siguientes
+         [net8.0]: 
+         Paquete de nivel superior                               Solicitado   Resuelto
+         > FluentValidation                                      11.11.0      11.11.0 
+         > FluentValidation.AspNetCore                           11.3.0       11.3.0  
+         > FluentValidation.DependencyInjectionExtensions        11.11.0      11.11.0 
+         > Microsoft.AspNetCore.Mvc.NewtonsoftJson               8.0.10       8.0.10  
+         > Microsoft.EntityFrameworkCore                         8.0.10       8.0.10  
+         > Microsoft.EntityFrameworkCore.SqlServer               8.0.10       8.0.10  
+         > Microsoft.EntityFrameworkCore.Tools                   8.0.10       8.0.10  
+         > Microsoft.VisualStudio.Web.CodeGeneration.Design      9.0.0        9.0.0   
+         > Swashbuckle.AspNetCore                                6.4.0        6.4.0   
+         > Swashbuckle.AspNetCore.Annotations                    7.2.0        7.2.0   
+      
+      El proyecto "CreditCardMVC" tiene las referencias de paquete siguientes
+         [net8.0]: 
+         Paquete de nivel superior                               Solicitado   Resuelto
+         > EPPlus                                                7.5.2        7.5.2   
+         > FluentValidation                                      11.11.0      11.11.0 
+         > FluentValidation.AspNetCore                           11.3.0       11.3.0  
+         > FluentValidation.DependencyInjectionExtensions        11.11.0      11.11.0 
+         > Microsoft.AspNet.WebApi.Client                        6.0.0        6.0.0   
+         > Microsoft.AspNetCore.Mvc.NewtonsoftJson               8.0.10       8.0.10  
+         > Microsoft.EntityFrameworkCore                         8.0.10       8.0.10  
+         > Microsoft.EntityFrameworkCore.SqlServer               8.0.10       8.0.10  
+         > Microsoft.EntityFrameworkCore.Tools                   8.0.10       8.0.10  
+         > Microsoft.VisualStudio.Web.CodeGeneration.Design      9.0.0        9.0.0
+```
