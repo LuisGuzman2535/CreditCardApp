@@ -82,7 +82,7 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
      "limiteCredito": 2000,
      "saldoActual": 0
    }
-```
+   ```
 ## 5. Cómo Probar la Aplicación
 - Ejecutar el proyecto CreditCardAPI en Visual Studio.
 - Utilizar la colección de Postman incluida en el repositorio para probar los endpoints de la API.
