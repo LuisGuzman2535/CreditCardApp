@@ -96,7 +96,7 @@ Esta aplicación web permite visualizar el estado de cuenta de una tarjeta de cr
 - Pantalla de Registrar Pago permite al usuario ingresar pagos realizados hacia la tarjeta de crédito.
 - Pantalla de Transacciones muestra una lista completa de todas las transacciones realizadas con la tarjeta de crédito, incluyendo tanto compras como pagos.
 
-##Paquetes NuGet utilizados en cada proyecto
+## Paquetes NuGet utilizados en cada proyecto
 ```
       El proyecto "CreditCardAPI" tiene las referencias de paquete siguientes
          [net8.0]: 
