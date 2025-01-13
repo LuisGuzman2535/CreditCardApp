@@ -61,7 +61,8 @@
                     <p><strong>Total Compras Mes Anterior:</strong> @Model.EstadoCuenta.TotalComprasMesAnterior</p>
                 </div>
                 <div class="col">
-                    <a class="btn btn-success btn-sm" asp-controller="EstadoDeCuenta" asp-action="ExportToExcel" asp-route-id="@Model.EstadoCuenta.TarjetaId">Exportar</a>
+                    <a class="btn btn-success m-1" asp-controller="EstadoDeCuenta" asp-action="ExportToExcel" asp-route-id="@Model.EstadoCuenta.TarjetaId">Exportar</a>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-danger m-1">Regresar</a>
                 </div>
             </div>
         </div>
